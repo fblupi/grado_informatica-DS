@@ -1,22 +1,27 @@
 
-public class Tarjeta extends Equipo {
-	private double potencia; // ¿qué es?
+public class Bus extends Equipo {
+	private double potencia;
 	private double precio;
-	Tarjeta(String nombre, double precio, double potencia) {
+	
+	Bus(String nombre, double precio, double potencia) {
 		super(nombre);
 		this.precio = precio;
 		this.potencia = potencia;
 	}
+	
 	public double potencia() {
 		return potencia;
 	}
+	
 	public double precioNeto() {
 		return precio;
 	}
+	
 	public double precioConDescuento() {
-		return precio; // ¿Habría que pasar como parámetro el descuento?
+		return precio;
 	}
+	
 	public void aceptar(VisitanteEquipo ve) {
-		ve.visitarTarjeta(this);
+		ve.visitarBus(this);
 	}
 }
