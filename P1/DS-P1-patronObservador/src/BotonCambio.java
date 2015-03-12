@@ -1,13 +1,13 @@
 
 public class BotonCambio implements Observador {
 	private Simulador simulador;
-	private static int temperatura;
+	private int temperatura;
 	
 	public BotonCambio(Simulador simulador) {
 		this.simulador = simulador;
 	}
 	
-	public static void refrescarPantalla() {
+	public void refrescarPantalla() {
 		System.out.println("Temperatura: " + temperatura + " ºC");
 	}
 	
@@ -17,6 +17,8 @@ public class BotonCambio implements Observador {
 	}
 	
 	public void setTemperatura(int temperatura) {
+		this.temperatura = temperatura;
 		simulador.setTemperatura(temperatura);
+		refrescarPantalla();
 	}
 }
