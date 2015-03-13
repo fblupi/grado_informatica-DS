@@ -9,6 +9,9 @@ public class Main {
 		BotonCambioTemperatura botonCambioTemperatura = new BotonCambioTemperatura(observableTemperatura);
 		PantallaTemperatura pantallaTemperatura = new PantallaTemperatura();
 		PantallaPresion pantallaPresion = new PantallaPresion();
+		pantallaTemperatura.setVisible(true);
+		pantallaPresion.setVisible(true);
+		botonCambioTemperatura.setVisible(true);
 		observableTemperatura.incluirObservador(botonCambioTemperatura);
 		observableTemperatura.incluirObservador(pantallaTemperatura);
 		observablePresion.incluirObservador(pantallaPresion);

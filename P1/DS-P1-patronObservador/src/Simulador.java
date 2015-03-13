@@ -28,7 +28,9 @@ public class Simulador extends Thread {
 		int turno = 0;
 		while (true){
 			temperatura.setTemperatura(t.nextInt((t2-t1)+1)+t1); // número aleatorio entre t1 y t2
-			if(turno%10==0) presion.setPresion(p.nextInt((p2-p1)+1)+p1);
+			if(turno%10==0) {
+				presion.setPresion(p.nextInt((p2-p1)+1)+p1);
+			}
 			try {
 				sleep(1000); // espera 1 segundo
 			}
