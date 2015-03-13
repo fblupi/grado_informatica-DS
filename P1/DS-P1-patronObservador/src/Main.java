@@ -18,13 +18,16 @@ public class Main extends JFrame {
 		BotonCambioTemperatura botonCambioTemperatura = new BotonCambioTemperatura(observableTemperatura);
 		PantallaTemperatura pantallaTemperatura = new PantallaTemperatura();
 		PantallaPresion pantallaPresion = new PantallaPresion();
+		GraficaTemperatura graficaTemperatura = new GraficaTemperatura();
 		
 		add(pantallaTemperatura,BorderLayout.NORTH);
 		add(pantallaPresion,BorderLayout.SOUTH);
 		add(botonCambioTemperatura,BorderLayout.CENTER);
+		add(graficaTemperatura,BorderLayout.EAST);
 		
 		observableTemperatura.incluirObservador(botonCambioTemperatura);
 		observableTemperatura.incluirObservador(pantallaTemperatura);
+		observableTemperatura.incluirObservador(graficaTemperatura);
 		observablePresion.incluirObservador(pantallaPresion);
 		
 		simuladorPresion.start();
