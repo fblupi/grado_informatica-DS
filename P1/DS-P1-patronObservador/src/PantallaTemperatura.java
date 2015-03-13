@@ -1,18 +1,16 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class PantallaTemperatura extends JFrame implements Observador {
+public class PantallaTemperatura extends JPanel implements Observador {
 	private static Temperatura temperatura;
 	private JLabel etiqueta;
 	
 	public PantallaTemperatura() {
-		setTitle("Pantalla Temperatura");
-		setSize(300,100);
-		Panel panelSuperior = new Panel();
-		panelSuperior.setLayout(new BorderLayout());
-		getContentPane().add(panelSuperior);
+		setBorder(javax.swing.BorderFactory.createTitledBorder("Pantalla Temperatura"));
+		setPreferredSize(new Dimension(300,50));
+		setLayout(new BorderLayout());
 		etiqueta = new JLabel("Temperatura: " + temperatura.getTemperatura() + " ºC");
-		panelSuperior.add(etiqueta, BorderLayout.NORTH);
+		add(etiqueta, BorderLayout.NORTH);
 	}
 	
 	public void refrescarPantalla() {

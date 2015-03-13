@@ -1,7 +1,8 @@
 import java.awt.*;
+
 import javax.swing.*;
 
-public class BotonCambioTemperatura extends JFrame implements Observador {
+public class BotonCambioTemperatura extends JPanel implements Observador {
 	private static Temperatura temperatura;
 	private ObservableTemperatura observable;
 	
@@ -11,22 +12,20 @@ public class BotonCambioTemperatura extends JFrame implements Observador {
 	
 	public BotonCambioTemperatura(ObservableTemperatura observable) {
 		this.observable = observable;
-		setTitle("Boton Temperatura");
-		setSize(300,300);
-		Panel panelSuperior = new Panel();
-		panelSuperior.setLayout(new BorderLayout());
-		getContentPane().add(panelSuperior);
+		setBorder(javax.swing.BorderFactory.createTitledBorder("Botón Cambio Temperatura"));
+		setPreferredSize(new Dimension(300,100));
+		setLayout(new BorderLayout());
 		etiqueta = new JLabel("Temperatura: " + temperatura.getTemperatura() + " ºC");
 		boton = new JButton("Actualizar");
-		campo = new JTextArea(10, 10);
+		campo = new JTextArea(2,2);
 		boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonActionPerformed(evt);
             }
         });
-		panelSuperior.add(campo, BorderLayout.SOUTH);
-		panelSuperior.add(boton, BorderLayout.EAST);
-		panelSuperior.add(etiqueta, BorderLayout.NORTH);
+		add(campo, BorderLayout.SOUTH);
+		add(boton, BorderLayout.CENTER);
+		add(etiqueta, BorderLayout.NORTH);
 	}
 	
 	private void botonActionPerformed(java.awt.event.ActionEvent evt) {

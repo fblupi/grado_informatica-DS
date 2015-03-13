@@ -1,6 +1,11 @@
+import java.awt.*;
+import javax.swing.*;
 
-public class Main {
-	public static void main(String[] args) throws InterruptedException {
+public class Main extends JFrame {	
+	public Main() {
+		setTitle("Central Meteorológica");
+		setSize(1000,600);
+		
 		Simulador simuladorTemperatura = new Simulador(0,1000,20,30);
 		Simulador simuladorPresion = new Simulador(1,2000,1000,1050);
 		
@@ -14,9 +19,9 @@ public class Main {
 		PantallaTemperatura pantallaTemperatura = new PantallaTemperatura();
 		PantallaPresion pantallaPresion = new PantallaPresion();
 		
-		pantallaTemperatura.setVisible(true);
-		pantallaPresion.setVisible(true);
-		botonCambioTemperatura.setVisible(true);
+		add(pantallaTemperatura,BorderLayout.NORTH);
+		add(pantallaPresion,BorderLayout.SOUTH);
+		add(botonCambioTemperatura,BorderLayout.CENTER);
 		
 		observableTemperatura.incluirObservador(botonCambioTemperatura);
 		observableTemperatura.incluirObservador(pantallaTemperatura);
@@ -24,5 +29,11 @@ public class Main {
 		
 		simuladorPresion.start();
 		simuladorTemperatura.start();
+	}
+	
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.pack();
+		main.setVisible(true);
 	}
 }
