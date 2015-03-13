@@ -2,19 +2,19 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Simulador extends Thread {
-	private int t1;
-	private int t2;
-	private int p1;
-	private int p2;
+	private int min;
+	private int max;
+	private int tipo;
+	private int periodo;
 	private ArrayList<Observable> observables;
 	Temperatura temperatura;
 	Presion presion;
 	
-	public Simulador (int t1, int t2, int p1, int p2) {
-		this.t1 = t1;
-		this.t2 = t2;
-		this.p1 = p1;
-		this.p2 = p2;
+	public Simulador (int tipo, int periodo, int min, int max) {
+		this.tipo = tipo;
+		this.periodo = periodo;
+		this.min = min;
+		this.max = max;
 		observables = new ArrayList<Observable>();
 	}
 	
@@ -23,30 +23,36 @@ public class Simulador extends Thread {
 	}
 	
 	public void run() {
-		Random t = new Random(t2);
-		Random p = new Random(p2);
-		int turno = 0;
+		Random r = new Random(max);
 		while (true){
-			temperatura.setTemperatura(t.nextInt((t2-t1)+1)+t1); // número aleatorio entre t1 y t2
-			if(turno%10==0) {
-				presion.setPresion(p.nextInt((p2-p1)+1)+p1);
+			// Crea número aleatorio
+			int valor = r.nextInt((max-min)+1)+min; // número aleatorio entre min y max
+			switch (tipo) {
+				case 0: temperatura.setTemperatura(valor); break;
+				case 1: presion.setPresion(valor); break;
+				default: break;
 			}
+			// Espera un periodo de tiempo
 			try {
-				sleep(1000); // espera 1 segundo
-			}
-			catch(java.lang.InterruptedException e) {
+				sleep(periodo);
+			} catch(java.lang.InterruptedException e) {
 				e.printStackTrace();
 			}
+			// Observables notifican observadores
 			for(Observable observable : observables) {
-				if(observable.getClass().equals(ObservablePresion.class)) {
-					if(turno%10==0) {
+				switch(tipo) {
+				case 0: 
+					if(observable.getClass().equals(ObservableTemperatura.class)) {
 						observable.notificar();
 					}
-				} else {
-					observable.notificar();
-				}
-			}
-			turno++;
-		}
+					break;
+				case 1:  
+					if(observable.getClass().equals(ObservablePresion.class)) {
+						observable.notificar();
+					}
+					break;
+				} // end switch
+			} // end for
+		} // end while
 	}
 }
