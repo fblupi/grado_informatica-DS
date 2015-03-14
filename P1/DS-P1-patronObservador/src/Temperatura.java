@@ -3,8 +3,8 @@ import monitor.*;
 public class Temperatura extends AbstractMonitor {
 	private int temperatura;
 	
-	public Temperatura(int t) {
-		temperatura = t;
+	public Temperatura(int temperatura) {
+		this.temperatura = temperatura;
 	}
 	
 	public int getTemperatura() {
@@ -14,28 +14,9 @@ public class Temperatura extends AbstractMonitor {
 		return valor;
 	}
 	
-	public void setTemperatura(int t) {
+	public void setTemperatura(int temperatura) {
 		enter();
-		temperatura = t;
+		this.temperatura = temperatura;
 		leave();
 	}
 }
-
-
-/*
-public class Temperatura {
-	private static int temperatura;
-	
-	public Temperatura(int t) {
-		temperatura = t;
-	}
-	
-	public static int getTemperatura() {
-		return temperatura;
-	}
-	
-	public static void setTemperatura(int t) {
-		temperatura = t;
-	}
-}
-*/

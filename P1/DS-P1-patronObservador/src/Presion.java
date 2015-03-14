@@ -3,8 +3,8 @@ import monitor.*;
 public class Presion extends AbstractMonitor {
 	private int presion;
 	
-	public Presion(int p) {
-		presion = p;
+	public Presion(int presion) {
+		this.presion = presion;
 	}
 	
 	public int getPresion() {
@@ -14,9 +14,9 @@ public class Presion extends AbstractMonitor {
 		return valor;
 	}
 	
-	public void setPresion(int t) {
+	public void setPresion(int presion) {
 		enter();
-		presion = t;
+		this.presion = presion;
 		leave();
 	}
 }

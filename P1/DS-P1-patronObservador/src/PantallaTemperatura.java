@@ -7,6 +7,7 @@ public class PantallaTemperatura extends JPanel implements Observador {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Temperatura temperatura;
 	private JLabel etiqueta;
 	
@@ -16,7 +17,7 @@ public class PantallaTemperatura extends JPanel implements Observador {
 		setPreferredSize(new Dimension(300,50));
 		setLayout(new BorderLayout());
 		etiqueta = new JLabel("Temperatura: " + temperatura.getTemperatura() + " ºC");
-		add(etiqueta, BorderLayout.NORTH);
+		add(etiqueta, BorderLayout.CENTER);
 	}
 	
 	public void refrescarPantalla() {
