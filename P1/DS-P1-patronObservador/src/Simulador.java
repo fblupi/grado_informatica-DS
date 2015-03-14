@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -7,15 +8,20 @@ public class Simulador extends Thread {
 	private int tipo;
 	private int periodo;
 	private ArrayList<Observable> observables;
-	Temperatura temperatura;
-	Presion presion;
+	private Temperatura temperatura;
+	private Presion presion;
 	
-	public Simulador (int tipo, int periodo, int min, int max) {
+	public Simulador (int tipo, int periodo, int min, int max, Temperatura temperatura, Presion presion) {
 		this.tipo = tipo;
 		this.periodo = periodo;
 		this.min = min;
 		this.max = max;
 		observables = new ArrayList<Observable>();
+		switch (tipo) {
+			case 0: this.temperatura = temperatura; break;
+			case 1: this.presion = presion; break;
+			default: break;
+		}
 	}
 	
 	public void incluirObservable(Observable observable) {

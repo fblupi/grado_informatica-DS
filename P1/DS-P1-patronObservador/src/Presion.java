@@ -1,16 +1,22 @@
+import monitor.*;
 
-public class Presion {
-	private static int presion;
+public class Presion extends AbstractMonitor {
+	private int presion;
 	
 	public Presion(int p) {
 		presion = p;
 	}
 	
-	public static int getPresion() {
-		return presion;
+	public int getPresion() {
+		enter();
+		int valor = presion;
+		leave();
+		return valor;
 	}
 	
-	public static void setPresion(int t) {
+	public void setPresion(int t) {
+		enter();
 		presion = t;
+		leave();
 	}
 }

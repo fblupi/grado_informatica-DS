@@ -1,17 +1,21 @@
-import java.awt.*;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class BotonCambioTemperatura extends JPanel implements Observador {
-	private static Temperatura temperatura;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Temperatura temperatura;
 	private ObservableTemperatura observable;
-	
 	private JLabel etiqueta;
 	private JTextArea campo;
 	private JButton boton;
 	
-	public BotonCambioTemperatura(ObservableTemperatura observable) {
+	public BotonCambioTemperatura(ObservableTemperatura observable, Temperatura temperatura) {
 		this.observable = observable;
+		this.temperatura = temperatura;
 		setBorder(javax.swing.BorderFactory.createTitledBorder("Botón Cambio Temperatura"));
 		setPreferredSize(new Dimension(300,100));
 		setLayout(new BorderLayout());
@@ -37,7 +41,6 @@ public class BotonCambioTemperatura extends JPanel implements Observador {
 	
 	public void refrescarPantalla() {
 		etiqueta.setText("Temperatura: " + temperatura.getTemperatura() + " ºC");
-		//System.out.println("Temperatura (Botón Cambio): " + temperatura.getTemperatura() + " ºC");
 	}
 	
 	public void manejarEvento() {

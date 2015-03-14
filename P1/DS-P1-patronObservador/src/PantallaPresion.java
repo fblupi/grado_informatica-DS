@@ -1,12 +1,17 @@
-import java.awt.*;
 
+import java.awt.*;
 import javax.swing.*;
 
 public class PantallaPresion extends JPanel implements Observador {
-	private static Presion presion;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Presion presion;
 	private JLabel etiqueta;
 	
-	public PantallaPresion() {
+	public PantallaPresion(Presion presion) {
+		this.presion = presion;
 		setBorder(javax.swing.BorderFactory.createTitledBorder("Pantalla Presión"));
 		setPreferredSize(new Dimension(300,50));
 		setLayout(new BorderLayout());
@@ -16,7 +21,6 @@ public class PantallaPresion extends JPanel implements Observador {
 	
 	public void refrescarPantalla() {
 		etiqueta.setText("Presión: " + presion.getPresion() + " hPa");
-		//System.out.println("Presión (Pantalla): " + presion.getPresion() + " hPa");
 	}
 	
 	public void manejarEvento() {
