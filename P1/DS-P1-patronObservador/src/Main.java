@@ -10,7 +10,7 @@ public class Main extends JFrame {
 
 	public Main() {
 		setTitle("Central Meteorológica");
-		setSize(1000,600);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Parar aplicación al cerrar JFrame
 		
 		// Creación de monitores de temperatura y presioón
 		Temperatura temperatura = new Temperatura(25);
