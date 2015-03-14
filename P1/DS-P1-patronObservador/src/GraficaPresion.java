@@ -1,6 +1,5 @@
 
 import java.awt.*;
-
 import javax.swing.*;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -14,8 +13,9 @@ public class GraficaPresion extends JPanel implements Observador {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Presion presion;
-	private int contador;
+	private int contador; // se usará para los valores del eje X de la gráfica
 	private XYSeries series;
 	private XYSeriesCollection dataset;
 	private JFreeChart chart;
@@ -39,7 +39,7 @@ public class GraficaPresion extends JPanel implements Observador {
 				false						// urls
 		);
 		chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new Dimension(400,200));
+		chartPanel.setPreferredSize(new Dimension(300,200));
 		add(chartPanel);
 	}
 	

@@ -2,25 +2,25 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class BotonCambioTemperatura extends JPanel implements Observador {
+public class BotonCambioPresion extends JPanel implements Observador {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Temperatura temperatura;
-	private ObservableTemperatura observable;
+	private Presion presion;
+	private ObservablePresion observable;
 	private JLabel etiqueta;
 	private JTextArea texto;
 	private JButton boton;
 	
-	public BotonCambioTemperatura(ObservableTemperatura observable, Temperatura temperatura) {
+	public BotonCambioPresion(ObservablePresion observable, Presion presion) {
 		this.observable = observable;
-		this.temperatura = temperatura;
-		setBorder(javax.swing.BorderFactory.createTitledBorder("Botón Cambio Temperatura"));
+		this.presion = presion;
+		setBorder(javax.swing.BorderFactory.createTitledBorder("Botón Cambio Presión"));
 		setPreferredSize(new Dimension(300,100));
 		setLayout(new BorderLayout());
-		etiqueta = new JLabel("Temperatura: " + temperatura.getTemperatura() + " ºC");
+		etiqueta = new JLabel("Presión: " + presion.getPresion() + " hPa");
 		boton = new JButton("Actualizar");
 		texto = new JTextArea(2,2);
 		boton.addActionListener(new java.awt.event.ActionListener() {
@@ -36,28 +36,28 @@ public class BotonCambioTemperatura extends JPanel implements Observador {
 	private void botonActionPerformed(java.awt.event.ActionEvent evt) {
 		String s = texto.getText();
 		if(esNumero(s)) {
-			setTemperatura(Integer.parseInt(s));
+			setPresion(Integer.parseInt(s));
 		}
 	}
 	
 	public void refrescarPantalla() {
-		etiqueta.setText("Temperatura: " + temperatura.getTemperatura() + " ºC");
+		etiqueta.setText("Presión: " + presion.getPresion() + " hPa");
 	}
 	
 	public void manejarEvento() {
 		refrescarPantalla();
 	}
 	
-	public void setTemperatura(int temperatura) {
-		this.temperatura.setTemperatura(temperatura);
-		observable.notificar(); // al cambiar temperatura notifica a todos los observadores
+	public void setPresion(int presion) {
+		this.presion.setPresion(presion);
+		observable.notificar(); // al cambiar presión notifica a todos los observadores
 	}
 	
 	private boolean esNumero(String string) {
 		if(string == null || string.isEmpty()) {
 			return false;
 		}
-		for(int i=0; i< string.length(); i++) {
+		for(int i=0; i<string.length(); i++) {
 			if(!Character.isDigit(string.charAt(i))) {
 				return false;
 			}

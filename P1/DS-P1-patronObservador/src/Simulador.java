@@ -3,10 +3,10 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Simulador extends Thread {
-	private int min;
-	private int max;
 	private int tipo;
 	private int periodo;
+	private int min;
+	private int max;
 	private ArrayList<Observable> observables;
 	private Temperatura temperatura;
 	private Presion presion;

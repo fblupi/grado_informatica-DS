@@ -13,8 +13,9 @@ public class GraficaTemperatura extends JPanel implements Observador {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Temperatura temperatura;
-	private int contador;
+	private int contador; // se usará para los valores del eje X de la gráfica
 	private XYSeries series;
 	private XYSeriesCollection dataset;
 	private JFreeChart chart;
@@ -38,7 +39,7 @@ public class GraficaTemperatura extends JPanel implements Observador {
 				false						// urls
 		);
 		chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new Dimension(400,200));
+		chartPanel.setPreferredSize(new Dimension(300,200));
 		add(chartPanel);
 	}
 	
