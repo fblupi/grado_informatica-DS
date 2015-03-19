@@ -1,2 +1,0 @@
-Monitores creados con las clases facilitadas en la asignatura Sistemas Concurrentes y Distribuidos en la UGR.
-Gráficas implementadas con JFreeChart (http://www.jfree.org/jfreechart/). Hace falta incluir jcommon-1.0.23.jar y jfreechart-1.0.19.jar en una librería para su funcionamiento.

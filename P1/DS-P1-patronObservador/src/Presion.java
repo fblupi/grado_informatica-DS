@@ -1,22 +1,19 @@
-import monitor.*;
+/**
+ *  @author Francisco Javier Bolívar Lupiáñez
+ */
 
-public class Presion extends AbstractMonitor {
+public class Presion {
 	private int presion;
 	
 	public Presion(int presion) {
 		this.presion = presion;
 	}
 	
-	public int getPresion() {
-		enter();
-		int valor = presion;
-		leave();
-		return valor;
+	public synchronized int getPresion() {
+		return presion;
 	}
 	
-	public void setPresion(int presion) {
-		enter();
+	public synchronized void setPresion(int presion) {
 		this.presion = presion;
-		leave();
 	}
 }

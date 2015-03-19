@@ -1,0 +1,1 @@
+Gráficas implementadas con JFreeChart. Hace falta incluir jcommon-1.0.23.jar y jfreechart-1.0.19.jar en una librería para su funcionamiento.

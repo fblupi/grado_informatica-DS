@@ -1,22 +1,19 @@
-import monitor.*;
+/**
+ *  @author Francisco Javier Bolívar Lupiáñez
+ */
 
-public class Temperatura extends AbstractMonitor {
+public class Temperatura {
 	private int temperatura;
 	
 	public Temperatura(int temperatura) {
 		this.temperatura = temperatura;
 	}
 	
-	public int getTemperatura() {
-		enter();
-		int valor = temperatura;
-		leave();
-		return valor;
+	public synchronized int getTemperatura() {
+		return temperatura;
 	}
 	
-	public void setTemperatura(int temperatura) {
-		enter();
+	public synchronized void setTemperatura(int temperatura) {
 		this.temperatura = temperatura;
-		leave();
 	}
 }

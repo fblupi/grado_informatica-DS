@@ -1,3 +1,6 @@
+/**
+ *  @author Francisco Javier Bolívar Lupiáñez
+ */
 
 import java.awt.*;
 import javax.swing.*;
