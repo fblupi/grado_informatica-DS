@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CinemaQuiz</string>
+    <string name="new_game">Nueva partida</string>
+    <string name="results">Resultados</string>
+    <string name="other_games">Otros juegos</string>
+    <string name="action_settings">Opciones</string>
+</resources>
