@@ -7,8 +7,7 @@
     android:gravity="center"
     android:padding="16dp"
     tools:context=".MainActivity"
-    android:baselineAligned="true"
-    android:background="@drawable/background">
+    android:baselineAligned="true">
 
     <ImageView
         android:layout_width="match_parent"
@@ -19,27 +18,21 @@
         android:layout_marginBottom="16dp"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/new_game"
         android:id="@+id/new_game"
         android:layout_gravity="center_horizontal"
-        style="@style/Buttons" />
+        style="@style/Buttons.Main" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/results"
         android:id="@+id/results"
         android:layout_gravity="center_horizontal"
-        style="@style/Buttons" />
+        style="@style/Buttons.Main" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/other_games"
         android:id="@+id/other_games"
         android:layout_gravity="center_horizontal"
-        style="@style/Buttons" />
+        style="@style/Buttons.Main" />
 
 </LinearLayout>

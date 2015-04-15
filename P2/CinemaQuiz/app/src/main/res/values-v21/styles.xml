@@ -3,6 +3,27 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@drawable/bg_repeat</item>
+    </style>
+
+    <style name="Buttons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
+        <item name="android:background">@drawable/btn_default</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:elevation">5dp</item>
+    </style>
+
+    <style name="Buttons.Main">
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>

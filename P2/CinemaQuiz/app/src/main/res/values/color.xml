@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FBC02D</color>
-    <color name="colorPrimaryDark">#F9A825</color>
+    <color name="colorPrimary">#FFB300</color>
+    <color name="colorPrimaryDark">#FFA000</color>
     <color name="buttonTextColor">#212121</color>
-    <color name="buttonColor">#FFF59D</color>
+    <color name="buttonNormalColor">#FFC107</color>
+    <color name="buttonHoverColor">#FFB300</color>
+    <color name="buttonPressedColor">#FFA000</color>
 </resources>
