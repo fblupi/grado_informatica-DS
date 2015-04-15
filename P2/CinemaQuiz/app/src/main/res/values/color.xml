@@ -2,4 +2,6 @@
 <resources>
     <color name="colorPrimary">#FBC02D</color>
     <color name="colorPrimaryDark">#F9A825</color>
+    <color name="buttonTextColor">#212121</color>
+    <color name="buttonColor">#FFF59D</color>
 </resources>

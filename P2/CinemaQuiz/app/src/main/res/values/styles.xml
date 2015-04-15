@@ -4,4 +4,11 @@
 
     </style>
 
+    <style name="Buttons">
+        <item name="android:singleLine">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
+        <item name="android:colorBackground">@color/buttonColor</item>
+    </style>
+
 </resources>
