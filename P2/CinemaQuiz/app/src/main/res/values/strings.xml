@@ -4,4 +4,7 @@
     <string name="results">Resultados</string>
     <string name="other_games">Otros juegos</string>
     <string name="action_settings">Opciones</string>
+    <string name="title_activity_game">GameActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
