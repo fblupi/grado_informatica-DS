@@ -1,0 +1,6 @@
+Solo una actividad activa a la vez.
+Para pasar información de una actividad a otra usar callback y content (R.content.view). La llamada guarda en el content y la llamadora los rescata de content (mecanismo síncrono de transferencia de control).
+
+También se puede crear una clase auxiliar (no actividad) donde guardar la información. El problema es que es totalmente asíncrono.
+
+Objeto mediaplayer para audio

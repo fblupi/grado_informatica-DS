@@ -21,22 +21,24 @@ public class MainActivity extends Activity {
         btNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent siguiente = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(siguiente);
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(intent);
             }
         });
 
         btResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+                startActivity(intent);
             }
         });
 
         btOtherGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, OtherGamesActivity.class);
+                startActivity(intent);
             }
         });
 
