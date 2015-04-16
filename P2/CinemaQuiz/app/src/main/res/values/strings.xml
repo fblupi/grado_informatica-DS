@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">CinemaQuiz</string>
+    <string name="title_activity_results">Resultados</string>
+    <string name="title_activity_other_games">Otros juegos</string>
+    <string name="title_activity_game">Juego</string>
     <string name="new_game">Nueva partida</string>
     <string name="results">Resultados</string>
     <string name="other_games">Otros juegos</string>
     <string name="action_settings">Opciones</string>
-    <string name="title_activity_game">GameActivity</string>
-
+    <string name="results_day">Día</string>
+    <string name="results_hour">Hora</string>
+    <string name="results_success">Aciertos</string>
+    <string name="results_fail">Fallos</string>
+    <string name="results_percentage">%</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_results">ResultsActivity</string>
-    <string name="title_activity_other_games">OtherGamesActivity</string>
 </resources>
