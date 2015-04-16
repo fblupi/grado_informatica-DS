@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.6">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:id="@+id/image"
+            android:src="@drawable/header" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Question"
+            android:id="@+id/question"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:text="Option 1"
+            android:id="@+id/option1"
+            android:layout_gravity="center_horizontal"
+            style="@style/Buttons.Game"/>
+
+        <Button
+            android:text="Option 2"
+            android:id="@+id/option2"
+            android:layout_gravity="center_horizontal"
+            style="@style/Buttons.Game"/>
+
+        <Button
+            android:text="Option 3"
+            android:id="@+id/option3"
+            android:layout_gravity="center_horizontal"
+            style="@style/Buttons.Game"/>
+
+        <Button
+            android:text="Option 4"
+            android:id="@+id/option4"
+            android:layout_gravity="center_horizontal"
+            style="@style/Buttons.Game" />
+    </LinearLayout>
+
+</LinearLayout>
