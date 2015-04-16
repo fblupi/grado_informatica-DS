@@ -26,8 +26,4 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="Buttons.Game">
-        <item name="android:layout_height">32dp</item>
-    </style>
-
 </resources>

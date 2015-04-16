@@ -21,8 +21,8 @@ public class MainActivity extends Activity {
         btNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent siguiente = new Intent(this, GameActivity.class);
-                //startActivity(siguiente);
+                Intent siguiente = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(siguiente);
             }
         });
 

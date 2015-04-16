@@ -41,25 +41,25 @@
             android:text="Option 1"
             android:id="@+id/option1"
             android:layout_gravity="center_horizontal"
-            style="@style/Buttons.Game"/>
+            style="@style/Buttons"/>
 
         <Button
             android:text="Option 2"
             android:id="@+id/option2"
             android:layout_gravity="center_horizontal"
-            style="@style/Buttons.Game"/>
+            style="@style/Buttons"/>
 
         <Button
             android:text="Option 3"
             android:id="@+id/option3"
             android:layout_gravity="center_horizontal"
-            style="@style/Buttons.Game"/>
+            style="@style/Buttons"/>
 
         <Button
             android:text="Option 4"
             android:id="@+id/option4"
             android:layout_gravity="center_horizontal"
-            style="@style/Buttons.Game" />
+            style="@style/Buttons" />
     </LinearLayout>
 
 </LinearLayout>
