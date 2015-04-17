@@ -9,14 +9,28 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.6">
+        android:layout_weight="0.33"
+        android:padding="8dp">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="96dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:id="@+id/image"
-            android:src="@drawable/header" />
+            android:src="@drawable/gargantua" />
+
+        <RelativeLayout
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <MediaController
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mediaController"
+                android:layout_gravity="center" />
+
+        </RelativeLayout>
 
     </FrameLayout>
 
@@ -24,38 +38,55 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.4"
-        android:padding="16dp">
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_weight="0.37">
 
-        <TextView
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Question"
-            android:id="@+id/question"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="12dp"/>
+            android:id="@+id/scrollViewQuestion" >
 
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearance"
+                android:text="¿Cuál de estos nombres corresponde al agujero negro de la imagen?"
+                android:id="@+id/question"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"/>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_weight="0.3">
         <Button
-            android:text="Option 1"
+            android:text="Gargántula"
             android:id="@+id/option1"
             android:layout_gravity="center_horizontal"
             style="@style/Buttons"/>
 
         <Button
-            android:text="Option 2"
+            android:text="Gargantúa"
             android:id="@+id/option2"
             android:layout_gravity="center_horizontal"
             style="@style/Buttons"/>
 
         <Button
-            android:text="Option 3"
+            android:text="Garganta"
             android:id="@+id/option3"
             android:layout_gravity="center_horizontal"
             style="@style/Buttons"/>
 
         <Button
-            android:text="Option 4"
+            android:text="Gargantilla"
             android:id="@+id/option4"
             android:layout_gravity="center_horizontal"
             style="@style/Buttons" />
