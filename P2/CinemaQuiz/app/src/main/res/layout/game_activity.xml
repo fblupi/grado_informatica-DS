@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.33"
+        android:layout_weight="0.35"
         android:padding="8dp">
 
         <ImageView
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:padding="16dp"
-        android:layout_weight="0.37">
+        android:layout_weight="0.4">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:padding="16dp"
-        android:layout_weight="0.3">
+        android:layout_weight="0.25">
         <Button
             android:text="Gargántula"
             android:id="@+id/option1"

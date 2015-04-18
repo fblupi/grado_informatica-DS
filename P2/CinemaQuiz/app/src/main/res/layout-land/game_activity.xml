@@ -75,24 +75,25 @@
             android:padding="16dp"
             android:layout_weight="0.35">
             <Button
-                android:text="Option 1"
+                android:text="Gargántula"
                 android:id="@+id/option1"
                 android:layout_gravity="center_horizontal"
                 style="@style/Buttons"/>
+
             <Button
-                android:text="Option 2"
+                android:text="Gargantúa"
                 android:id="@+id/option2"
                 android:layout_gravity="center_horizontal"
                 style="@style/Buttons"/>
 
             <Button
-                android:text="Option 3"
+                android:text="Garganta"
                 android:id="@+id/option3"
                 android:layout_gravity="center_horizontal"
                 style="@style/Buttons"/>
 
             <Button
-                android:text="Option 4"
+                android:text="Gargantilla"
                 android:id="@+id/option4"
                 android:layout_gravity="center_horizontal"
                 style="@style/Buttons" />

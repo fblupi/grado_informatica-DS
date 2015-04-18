@@ -5,106 +5,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
+    android:gravity="center_horizontal"
     tools:context="com.practicas_ds.cinemaquiz.ResultsActivity">
 
-    <TableLayout
-        android:layout_width="match_parent"
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:showDividers="middle|beginning|end">
+        android:id="@+id/horizontalScrollViewResults" >
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollViewResults">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TableLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/results_day"
-                android:id="@+id/results_day"
-                android:layout_column="0" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/results_hour"
-                android:id="@+id/results_hour"
-                android:layout_column="1" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/results_success"
-                android:id="@+id/results_success"
-                android:layout_column="2"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/results_fail"
-                android:id="@+id/results_fail"
-                android:layout_column="3"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/results_percentage"
-                android:id="@+id/results_percentage"
-                android:layout_column="4"/>
-        </TableRow>
+                android:layout_gravity="center_horizontal"
+                android:showDividers="middle|beginning|end">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="16/04/2015"
-                android:id="@+id/results_day1"
-                android:layout_column="0" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="17:17"
-                android:id="@+id/results_hour1"
-                android:layout_column="1" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="102"
-                android:id="@+id/results_success1"
-                android:layout_column="2"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="0"
-                android:id="@+id/results_fail1"
-                android:layout_column="3"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="100"
-                android:id="@+id/results_percentage1"
-                android:layout_column="4"/>
-        </TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/results_day"
+                        android:id="@+id/results_day"
+                        android:layout_column="0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/results_hour"
+                        android:id="@+id/results_hour"
+                        android:layout_column="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/results_success"
+                        android:id="@+id/results_success"
+                        android:layout_column="2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/results_fail"
+                        android:id="@+id/results_fail"
+                        android:layout_column="3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/results_percentage"
+                        android:id="@+id/results_percentage"
+                        android:layout_column="4"/>
+                </TableRow>
 
-    </TableLayout>
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="16/04/2015"
+                        android:id="@+id/results_day1"
+                        android:layout_column="0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="17:17"
+                        android:id="@+id/results_hour1"
+                        android:layout_column="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="102"
+                        android:id="@+id/results_success1"
+                        android:layout_column="2"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="0"
+                        android:id="@+id/results_fail1"
+                        android:layout_column="3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="100"
+                        android:id="@+id/results_percentage1"
+                        android:layout_column="4"/>
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+    </HorizontalScrollView>
 
 </LinearLayout>
