@@ -11,7 +11,7 @@ public class Preguntas {
         vectorPreguntas = ejemploPreguntas();
     }
 
-    static void shuffle() { Collections.shuffle(vectorPreguntas); }
+    static void shuffle() { vectorPreguntas = ejemploPreguntas(); }
 
     static Pregunta getPregunta(int id) {
         return vectorPreguntas.get(id);
@@ -31,6 +31,7 @@ public class Preguntas {
 
     public static ArrayList<Pregunta> ejemploPreguntas() {
         ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
+
         preguntas.add(new Pregunta(
                 "¿Cuál de estos nombres corresponde al agujero negro de la imagen?",
                 "Gargantúa",
@@ -115,6 +116,31 @@ public class Preguntas {
                 "El truco final",
                 "Basquiat",
                 0, null));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos escuchar este silbido?",
+                "Kill Bill",
+                "Reservoir Dogs",
+                "Django desencadenado",
+                "Malditos bastardos",
+                2, "twisted_nerve"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película escuchamos esta banda sonora?",
+                "Parque jurásico",
+                "Indiana Jones",
+                "El señor de los anillos",
+                "Star Wars",
+                2, "parque_jurasico"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos escuchar esta canción?",
+                "Reservoir Dogs",
+                "Pulp Fiction",
+                "Los hombres de negro",
+                "Kill Bill",
+                2, "little_green_bag"
+        ));
+        Collections.shuffle(preguntas);
         return preguntas;
     }
 }

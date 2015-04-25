@@ -21,14 +21,36 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:id="@+id/music">
 
-            <MediaController
+            <ImageButton
+                android:id="@+id/buttonPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mediaController"
-                android:layout_gravity="center" />
+                android:onClick="play"
+                android:src="@android:drawable/ic_media_play" />
+
+            <ImageButton
+                android:id="@+id/buttonPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/buttonPlay"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/buttonPlay"
+                android:onClick="pause"
+                android:src="@android:drawable/ic_media_pause" />
+
+            <ImageButton
+                android:id="@+id/buttonStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/buttonPause"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/buttonPause"
+                android:onClick="stop"
+                android:src="@android:drawable/ic_media_rew" />
 
         </RelativeLayout>
 

@@ -6,15 +6,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 
 public class GameActivity extends Activity {
 
@@ -26,9 +29,13 @@ public class GameActivity extends Activity {
     private Button option1; // Botón segunda opción
     private Button option2; // Botón tercera opción
     private Button option3; // Botón cuarta opción
+    private ImageButton play; // Botón play
+    private ImageButton pause; // Botón pause
+    private ImageButton stop; // Botón stop
     private SoundPool soundPool; // Sonido de acierto o fallo
     private int spAciertoId; // Identificador de sonido de acierto
     private int spFalloId; // Identificador de sonido de fallo
+    private MediaPlayer mediaPlayer;
 
     // Método llamado al crear la actividad
     @Override
@@ -46,6 +53,9 @@ public class GameActivity extends Activity {
         option1 = (Button) findViewById(R.id.option1);
         option2 = (Button) findViewById(R.id.option2);
         option3 = (Button) findViewById(R.id.option3);
+        play = (ImageButton) findViewById(R.id.play);
+        pause = (ImageButton) findViewById(R.id.pause);
+        stop = (ImageButton) findViewById(R.id.stop);
 
         // Se crean los sonidos de acierto y fallo
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) { // Usa el nuevo constructor
@@ -71,6 +81,9 @@ public class GameActivity extends Activity {
         option0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pregunta.getTipo()==2) { // Hay música
+                    destruirMediaPlayer(); // Finalizar y liberar música
+                }
                 if(pregunta.getRespuestaCorrecta()==0) { // Acierto
                     // Se colorea el botón de verde
                     option0.setBackgroundResource(R.drawable.btn_success);
@@ -88,6 +101,9 @@ public class GameActivity extends Activity {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pregunta.getTipo()==2) { // Hay música
+                    destruirMediaPlayer(); // Finalizar y liberar música
+                }
                 if(pregunta.getRespuestaCorrecta()==1) { // Acierto
                     // Se colorea el botón de verde
                     option1.setBackgroundResource(R.drawable.btn_success);
@@ -105,6 +121,9 @@ public class GameActivity extends Activity {
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pregunta.getTipo()==2) { // Hay música
+                    destruirMediaPlayer(); // Finalizar y liberar música
+                }
                 if(pregunta.getRespuestaCorrecta()==2) { // Acierto
                     // Se colorea el botón de verde
                     option2.setBackgroundResource(R.drawable.btn_success);
@@ -122,6 +141,9 @@ public class GameActivity extends Activity {
         option3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pregunta.getTipo()==2) { // Hay música
+                    destruirMediaPlayer(); // Finalizar y liberar música
+                }
                 if(pregunta.getRespuestaCorrecta()==3) { // Acierto
                     // Se colorea el botón de verde
                     option3.setBackgroundResource(R.drawable.btn_success);
@@ -133,6 +155,35 @@ public class GameActivity extends Activity {
                     option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaIncorrecta();
                 }
+            }
+        });
+
+        // Listener de los botones del reproductor
+        play.setOnClickListener(new View.OnClickListener() { // Play
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start(); // Se vuelve a reproducir
+                pause.setEnabled(true); // Se habilita el botón de pause
+                play.setEnabled(false); // Se deshabilita el botón de play
+            }
+        });
+
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.pause(); // Se para
+                play.setEnabled(true); // Se habilita el botón de play
+                pause.setEnabled(false); // Se deshabilita el botón de pause
+            }
+        });
+
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.seekTo(0); // Se vuelve al principio
+                mediaPlayer.start(); // Se inicia
+                pause.setEnabled(true); // Se habilita el botón de pause
+                play.setEnabled(false); // Se deshabilita el botón de play
             }
         });
 
@@ -155,14 +206,26 @@ public class GameActivity extends Activity {
         RelativeLayout music = (RelativeLayout) findViewById(R.id.music);
 
         if(this.pregunta.getTipo() == 0 || this.pregunta.getTipo() == 1) { // Si la pregunta es básica o con imagen se carga esta
+            music.setVisibility(View.GONE); // Los controles de la música desaparecen
+            image.setVisibility(View.VISIBLE); // La imagen se hace visible
             if (this.pregunta.getTipo() == 1) { // Si es tipo pregunta con imagen se carga el recurso
                 image.setImageResource(getImageId(this, this.pregunta.getRecurso()));
             } else { // en caso contrario se carga la imagen genérica
                 image.setImageResource(R.drawable.generic_question);
             }
-            music.setVisibility(View.GONE); // Los controles de la música desaparecen
         } else { // Si la pregunta es de música
             image.setVisibility(View.GONE); // La imagen desaparece
+            music.setVisibility(View.VISIBLE); // Los controles de música se hacen visibles
+            mediaPlayer = MediaPlayer.create(this, getSongId(this, this.pregunta.getRecurso())); // Se crea el media player
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mediaPlayer.setLooping(true); // Se habilita el Looping para que se repita
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) { // Cuando esté preparado se inicia
+                        mp.start();
+                }
+            });
+            play.setEnabled(false); // Se deshabilita el botón play, pues actualmente está sonando
         }
 
         // Se carga la pregunta y se le da el texto correspondiente
@@ -179,6 +242,11 @@ public class GameActivity extends Activity {
     // Método para obtener el id de un recurso en forma de imagen a partir de un String
     private int getImageId(Context context, String imageName) {
         return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
+    }
+
+    // Método para obtener el id de un recurso en forma de sonido a partir de un String
+    private int getSongId(Context context, String songName) {
+        return context.getResources().getIdentifier("raw/" + songName, null, context.getPackageName());
     }
 
     // Método que se activa cuando la respuesta pulsada es correcta
@@ -279,5 +347,11 @@ public class GameActivity extends Activity {
                 })
                 .setCancelable(false) // Pulsar fuera del AlertDialog no lo desactiva
                 .show();
+    }
+
+    private void destruirMediaPlayer() {
+        mediaPlayer.stop();
+        mediaPlayer.reset();
+        mediaPlayer.release();
     }
 }
