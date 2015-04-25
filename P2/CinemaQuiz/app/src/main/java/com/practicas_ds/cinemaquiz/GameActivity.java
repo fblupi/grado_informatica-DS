@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class GameActivity extends Activity {
@@ -132,15 +131,21 @@ public class GameActivity extends Activity {
 
     private void respuestaCorrecta() {
         aciertos++;
+        id++;
+        String successMessage = getString(R.string.num_success) + aciertos;
+        String errorsMessage = getString(R.string.num_errors) + fallos;
+
         new AlertDialog.Builder(this)
                 .setTitle(R.string.success_message)
-                //.setMessage(R.string.num_success + Integer.toString(aciertos) + "\n" + R.string.num_errors + Integer.toString(fallos))
+                .setMessage(successMessage + "\n" + errorsMessage)
                 .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        id = (id + 1) % Preguntas.size();
-                        pregunta = Preguntas.getPregunta(id);
-                        actualizarVistas();
+                        if (id == Preguntas.size()) {
+                            juegoCompletado();
+                        } else {
+                            siguientePregunta();
+                        }
                     }
                 })
                 .setCancelable(false)
@@ -149,21 +154,52 @@ public class GameActivity extends Activity {
 
     private void respuestaIncorrecta() {
         fallos++;
+        id++;
+        String successMessage = getString(R.string.num_success) + aciertos;
+        String errorsMessage = getString(R.string.num_errors) + fallos;
         new AlertDialog.Builder(this)
                 .setTitle(R.string.error_message)
-                //.setMessage(R.string.num_success + Integer.toString(aciertos) + "\n" + R.string.num_errors + Integer.toString(fallos))
-                .setNegativeButton(R.string.exit_game,new DialogInterface.OnClickListener() {
+                .setMessage(successMessage + "\n" + errorsMessage)
+                .setNegativeButton(R.string.exit_game, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        finalizarPartida();
                     }
                 })
                 .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        id = (id + 1) % Preguntas.size();
-                        pregunta = Preguntas.getPregunta(id);
-                        actualizarVistas();
+                        if (id == Preguntas.size()) {
+                            juegoCompletado();
+                        } else {
+                            siguientePregunta();
+                        }
+                    }
+                })
+                .setCancelable(false)
+                .show();
+    }
+
+    private void siguientePregunta() {
+        pregunta = Preguntas.getPregunta(id);
+        actualizarVistas();
+    }
+
+    private void finalizarPartida() {
+        finish();
+    }
+
+    private void juegoCompletado() {
+        String finishMessage = getString(R.string.finish_message);
+        String successMessage = getString(R.string.num_success) + aciertos;
+        String errorsMessage = getString(R.string.num_errors) + fallos;
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.finish_title)
+                .setMessage(finishMessage + "\n\n" + successMessage + "\n" + errorsMessage)
+                .setPositiveButton(R.string.exit_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finalizarPartida();
                     }
                 })
                 .setCancelable(false)

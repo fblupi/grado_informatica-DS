@@ -16,6 +16,8 @@
     <string name="error_message">Has fallado...</string>
     <string name="continue_game">Continuar</string>
     <string name="exit_game">Salir</string>
-    <string name="num_success">Aciertos: </string>
-    <string name="num_errors">Fallos: </string>
+    <string name="num_success">Aciertos:\t</string>
+    <string name="num_errors">Fallos:\t</string>
+    <string name="finish_title">Fin de partida</string>
+    <string name="finish_message">¡Felicidades! Has respondido todas las preguntas. Pulsa en el botón para volver al menú principal.</string>
 </resources>
