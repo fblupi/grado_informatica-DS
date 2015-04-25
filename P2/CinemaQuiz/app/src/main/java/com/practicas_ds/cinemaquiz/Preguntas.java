@@ -140,6 +140,86 @@ public class Preguntas {
                 "Kill Bill",
                 2, "little_green_bag"
         ));
+        preguntas.add(new Pregunta(
+                "¿Quién es el director de Primos?",
+                "Daniel Sánchez Arévalo",
+                "Alejandro Amenábar",
+                "Alberto Rodríguez",
+                "Daniel Monzón",
+                0, null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Quién coprotagoniza con Luis Tosar La flaqueza del bolchevique?",
+                "María Valverde",
+                "Belén Rueda",
+                "Inma Cuesta",
+                "Clara Lago",
+                0, null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Qué profesión ejerce el personaje que interpreta Ben Stiller en Más que amigos?",
+                "Rabino",
+                "Cura",
+                "Panadero",
+                "Repartidor de pizzas",
+                0, null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película nos encontramos con este personaje?",
+                "El caballero oscuro",
+                "Batman",
+                "Batman & Robin",
+                "El caballero oscuro: La leyenda renace",
+                1, "joker"
+        ));
+        preguntas.add(new Pregunta(
+                "¿Quién se acaba convirtiendo en periodista de guerra en La chaqueta metálica?",
+                "Recluta bufón",
+                "Recluta patoso",
+                "Copo de nieve",
+                "Recluta artista",
+                0, null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Quién dirigió Oldboy?",
+                "Park Chan-wook",
+                "Cho Young-wuk",
+                "Chun Chung-hoon",
+                "Kim ki-duk",
+                0, null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película encontramos esta escena de Travolta bailando?",
+                "Pulp Fiction",
+                "Grease",
+                "Fiebre del sábado noche",
+                "Cerdos salvajes",
+                1, "travolta_dancing"
+        ));
+        preguntas.add(new Pregunta(
+                "¿A qué película corresponde esta imagen?",
+                "Cadena perpetua",
+                "Como dios",
+                "Sigo como dios",
+                "Invictus",
+                1, "robbins_freeman"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos escuchar esta canción?",
+                "La flaqueza del bolchevique",
+                "Mar adentro",
+                "Hablé con ella",
+                "Los lunes al sol",
+                2, "standby"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos escuchar esta banda sonora?",
+                "Origen",
+                "Interstellar",
+                "Rush",
+                "El caballero oscuro",
+                2, "time"
+        ));
         Collections.shuffle(preguntas);
         return preguntas;
     }
