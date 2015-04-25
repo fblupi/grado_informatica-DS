@@ -12,5 +12,10 @@
     <string name="results_success">Aciertos</string>
     <string name="results_fail">Fallos</string>
     <string name="results_percentage">%</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="success_message">¡Correcto!</string>
+    <string name="error_message">Has fallado...</string>
+    <string name="continue_game">Continuar</string>
+    <string name="exit_game">Salir</string>
+    <string name="num_success">Aciertos: </string>
+    <string name="num_errors">Fallos: </string>
 </resources>

@@ -1,7 +1,9 @@
 package com.practicas_ds.cinemaquiz;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
+        Preguntas.shuffle();
 
         aciertos = fallos = id = 0;
         pregunta = Preguntas.getPregunta(id);
@@ -40,8 +43,12 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(pregunta.getRespuestaCorrecta()==0) {
+                    option0.setBackgroundResource(R.drawable.btn_success);
+                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaCorrecta();
                 } else {
+                    option0.setBackgroundResource(R.drawable.btn_error);
+                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaIncorrecta();
                 }
             }
@@ -51,8 +58,12 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(pregunta.getRespuestaCorrecta()==1) {
+                    option1.setBackgroundResource(R.drawable.btn_success);
+                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaCorrecta();
                 } else {
+                    option1.setBackgroundResource(R.drawable.btn_error);
+                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaIncorrecta();
                 }
             }
@@ -62,8 +73,12 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(pregunta.getRespuestaCorrecta()==2) {
+                    option2.setBackgroundResource(R.drawable.btn_success);
+                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaCorrecta();
                 } else {
+                    option2.setBackgroundResource(R.drawable.btn_error);
+                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaIncorrecta();
                 }
             }
@@ -73,8 +88,12 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(pregunta.getRespuestaCorrecta()==3) {
+                    option3.setBackgroundResource(R.drawable.btn_success);
+                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaCorrecta();
                 } else {
+                    option3.setBackgroundResource(R.drawable.btn_error);
+                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
                     respuestaIncorrecta();
                 }
             }
@@ -83,6 +102,15 @@ public class GameActivity extends Activity {
     }
 
     private void actualizarVistas() {
+        option0.setBackgroundResource(R.drawable.btn_default);
+        option0.setTextColor(getResources().getColor(R.color.buttonTextColor));
+        option1.setBackgroundResource(R.drawable.btn_default);
+        option1.setTextColor(getResources().getColor(R.color.buttonTextColor));
+        option2.setBackgroundResource(R.drawable.btn_default);
+        option2.setTextColor(getResources().getColor(R.color.buttonTextColor));
+        option3.setBackgroundResource(R.drawable.btn_default);
+        option3.setTextColor(getResources().getColor(R.color.buttonTextColor));
+
         ImageView image = (ImageView) findViewById(R.id.image);
         image.setImageResource(R.drawable.generic_question);
         if(this.pregunta.getTipo()==1) {
@@ -103,18 +131,42 @@ public class GameActivity extends Activity {
     }
 
     private void respuestaCorrecta() {
-        Toast.makeText(getApplicationContext(), "Has acertado :D", Toast.LENGTH_SHORT).show();
-        id = (id + 1) % Preguntas.size();
         aciertos++;
-        pregunta = Preguntas.getPregunta(id);
-        actualizarVistas();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.success_message)
+                //.setMessage(R.string.num_success + Integer.toString(aciertos) + "\n" + R.string.num_errors + Integer.toString(fallos))
+                .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        id = (id + 1) % Preguntas.size();
+                        pregunta = Preguntas.getPregunta(id);
+                        actualizarVistas();
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 
     private void respuestaIncorrecta() {
-        Toast.makeText(getApplicationContext(), "Te has equivocado :(", Toast.LENGTH_SHORT).show();
-        id = (id + 1) % Preguntas.size();
         fallos++;
-        pregunta = Preguntas.getPregunta(id);
-        actualizarVistas();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.error_message)
+                //.setMessage(R.string.num_success + Integer.toString(aciertos) + "\n" + R.string.num_errors + Integer.toString(fallos))
+                .setNegativeButton(R.string.exit_game,new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        id = (id + 1) % Preguntas.size();
+                        pregunta = Preguntas.getPregunta(id);
+                        actualizarVistas();
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 }

@@ -10,13 +10,23 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:singleLine">true</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/buttonTextColor</item>
         <item name="android:background">@drawable/btn_default</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
         <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="Buttons.Error">
+        <item name="android:background">@drawable/btn_error</item>
+        <item name="android:textColor">@color/buttonTextColorWhite</item>
+    </style>
+
+    <style name="Buttons.Success">
+        <item name="android:background">@drawable/btn_success</item>
+        <item name="android:textColor">@color/buttonTextColorWhite</item>
     </style>
 
     <style name="Buttons.Main">

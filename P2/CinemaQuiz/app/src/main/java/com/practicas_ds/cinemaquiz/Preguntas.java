@@ -11,6 +11,8 @@ public class Preguntas {
         vectorPreguntas = ejemploPreguntas();
     }
 
+    static void shuffle() { Collections.shuffle(vectorPreguntas); }
+
     static Pregunta getPregunta(int id) {
         return vectorPreguntas.get(id);
     }
@@ -113,7 +115,6 @@ public class Preguntas {
                 "El truco final",
                 "Basquiat",
                 0, null));
-        Collections.shuffle(preguntas);
         return preguntas;
     }
 }
