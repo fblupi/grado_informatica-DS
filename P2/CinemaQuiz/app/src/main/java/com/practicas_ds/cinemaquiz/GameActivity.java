@@ -8,9 +8,9 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,9 +18,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.IOException;
-
 public class GameActivity extends Activity {
+    private static final long INTERVALO_CLICK = 1000;
 
     private int aciertos; // número de aciertos
     private int fallos; // número de fallos
@@ -36,7 +35,8 @@ public class GameActivity extends Activity {
     private SoundPool soundPool; // Sonido de acierto o fallo
     private int spAciertoId; // Identificador de sonido de acierto
     private int spFalloId; // Identificador de sonido de fallo
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer; // Sonido de música en preguntas
+    private long mLastClickTime = 0; // Variable para controlar el tiempo entre pulsaciones
 
     // Método llamado al crear la actividad
     @Override
@@ -82,80 +82,44 @@ public class GameActivity extends Activity {
         option0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pregunta.getTipo()==2) { // Hay música
-                    destruirMediaPlayer(); // Finalizar y liberar música
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
                 }
-                if(pregunta.getRespuestaCorrecta()==0) { // Acierto
-                    // Se colorea el botón de verde
-                    option0.setBackgroundResource(R.drawable.btn_success);
-                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaCorrecta();
-                } else { // Fallo
-                    // Se colorea el botón de rojo
-                    option0.setBackgroundResource(R.drawable.btn_error);
-                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaIncorrecta();
-                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                elegirRespuesta(null, 0);
             }
         });
 
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pregunta.getTipo()==2) { // Hay música
-                    destruirMediaPlayer(); // Finalizar y liberar música
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
                 }
-                if(pregunta.getRespuestaCorrecta()==1) { // Acierto
-                    // Se colorea el botón de verde
-                    option1.setBackgroundResource(R.drawable.btn_success);
-                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaCorrecta();
-                } else { // Fallo
-                    // Se colorea el botón de rojo
-                    option1.setBackgroundResource(R.drawable.btn_error);
-                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaIncorrecta();
-                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                elegirRespuesta(null, 1);
             }
         });
 
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pregunta.getTipo()==2) { // Hay música
-                    destruirMediaPlayer(); // Finalizar y liberar música
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
                 }
-                if(pregunta.getRespuestaCorrecta()==2) { // Acierto
-                    // Se colorea el botón de verde
-                    option2.setBackgroundResource(R.drawable.btn_success);
-                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaCorrecta();
-                } else { // Fallo
-                    // Se colorea el botón de rojo
-                    option2.setBackgroundResource(R.drawable.btn_error);
-                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaIncorrecta();
-                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                elegirRespuesta(null, 2);
             }
         });
 
         option3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pregunta.getTipo()==2) { // Hay música
-                    destruirMediaPlayer(); // Finalizar y liberar música
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
                 }
-                if(pregunta.getRespuestaCorrecta()==3) { // Acierto
-                    // Se colorea el botón de verde
-                    option3.setBackgroundResource(R.drawable.btn_success);
-                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaCorrecta();
-                } else { // Fallo
-                    // Se colorea el botón de rojo
-                    option3.setBackgroundResource(R.drawable.btn_error);
-                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
-                    respuestaIncorrecta();
-                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                elegirRespuesta(null, 3);
             }
         });
 
@@ -163,31 +127,121 @@ public class GameActivity extends Activity {
         play.setOnClickListener(new View.OnClickListener() { // Play
             @Override
             public void onClick(View v) {
-                mediaPlayer.start(); // Se vuelve a reproducir
-                pause.setEnabled(true); // Se habilita el botón de pause
-                play.setEnabled(false); // Se deshabilita el botón de play
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                playMusic(null);
             }
         });
 
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.pause(); // Se para
-                play.setEnabled(true); // Se habilita el botón de play
-                pause.setEnabled(false); // Se deshabilita el botón de pause
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                pauseMusic(null);
             }
         });
 
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.seekTo(0); // Se vuelve al principio
-                mediaPlayer.start(); // Se inicia
-                pause.setEnabled(true); // Se habilita el botón de pause
-                play.setEnabled(false); // Se deshabilita el botón de play
+                if (SystemClock.elapsedRealtime() - mLastClickTime < INTERVALO_CLICK) { // Se ha pulsado un botón hace menos de INTERVALO_CLICK milisegundos
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
+                stopMusic(null);
             }
         });
 
+    }
+
+    @Override
+    // Método cuando se pulsa el botón atrás
+    public void onBackPressed() {
+        if(pregunta.getTipo()==2) { // Hay música
+            destruirMediaPlayer(); // Finalizar y liberar música
+        }
+        finalizarPartida();
+    }
+
+    // Método llamado al pulsar un botón de respuesta
+    private void elegirRespuesta(View view, int id) {
+        if(pregunta.getTipo()==2) { // Hay música
+            destruirMediaPlayer(); // Finalizar y liberar música
+        }
+        if(pregunta.getRespuestaCorrecta()==id) { // Acierto
+            // Se colorea el botón de verde
+            switch(id) {
+                case 0:
+                    option0.setBackgroundResource(R.drawable.btn_success);
+                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 1:
+                    option1.setBackgroundResource(R.drawable.btn_success);
+                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 2:
+                    option2.setBackgroundResource(R.drawable.btn_success);
+                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 3:
+                    option3.setBackgroundResource(R.drawable.btn_success);
+                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                default:
+                    break;
+            }
+            respuestaCorrecta();
+        } else { // Fallo
+            // Se colorea el botón de rojo
+            switch(id) {
+                case 0:
+                    option0.setBackgroundResource(R.drawable.btn_error);
+                    option0.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 1:
+                    option1.setBackgroundResource(R.drawable.btn_error);
+                    option1.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 2:
+                    option2.setBackgroundResource(R.drawable.btn_error);
+                    option2.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                case 3:
+                    option3.setBackgroundResource(R.drawable.btn_error);
+                    option3.setTextColor(getResources().getColor(R.color.buttonTextColorWhite));
+                    break;
+                default:
+                    break;
+            }
+            respuestaIncorrecta();
+        }
+    }
+
+    // Método llamado al pulsar en play
+    private void playMusic(View view) {
+        mediaPlayer.start(); // Se vuelve a reproducir
+        pause.setEnabled(true); // Se habilita el botón de pause
+        play.setEnabled(false); // Se deshabilita el botón de play
+    }
+
+    // Método llamado al pulsar en pause
+    private void pauseMusic(View view) {
+        mediaPlayer.pause(); // Se para
+        play.setEnabled(true); // Se habilita el botón de play
+        pause.setEnabled(false); // Se deshabilita el botón de pause
+    }
+
+    // Método llamado al pulsar en stop
+    private void stopMusic(View view) {
+        mediaPlayer.seekTo(0); // Se vuelve al principio
+        mediaPlayer.start(); // Se inicia
+        pause.setEnabled(true); // Se habilita el botón de pause
+        play.setEnabled(false); // Se deshabilita el botón de play
     }
 
     // Método para actualizar la actividad cada vez que se cambia de pregunta
@@ -226,18 +280,6 @@ public class GameActivity extends Activity {
                         mp.start();
                 }
             });
-            /* Opción 2
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            try {
-                Uri myUri = Uri.parse("android.resource://" + getPackageName() + "/" + getSongId(this, this.pregunta.getRecurso()));
-                mediaPlayer.setDataSource(this, myUri);
-                mediaPlayer.prepare();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            mediaPlayer.start();
-            */
             play.setEnabled(false); // Se deshabilita el botón play, pues actualmente está sonando
         }
 
@@ -250,16 +292,6 @@ public class GameActivity extends Activity {
         option1.setText(this.pregunta.getRespuesta(1));
         option2.setText(this.pregunta.getRespuesta(2));
         option3.setText(this.pregunta.getRespuesta(3));
-    }
-
-    // Método para obtener el id de un recurso en forma de imagen a partir de un String
-    private int getImageId(Context context, String imageName) {
-        return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
-    }
-
-    // Método para obtener el id de un recurso en forma de sonido a partir de un String
-    private int getSongId(Context context, String songName) {
-        return context.getResources().getIdentifier("raw/" + songName, null, context.getPackageName());
     }
 
     // Método que se activa cuando la respuesta pulsada es correcta
@@ -330,17 +362,6 @@ public class GameActivity extends Activity {
                 .show();
     }
 
-    // Método para cambiar de pregunta y actualizar los campos de la actividad
-    private void siguientePregunta() {
-        pregunta = Preguntas.getPregunta(id);
-        actualizarVistas();
-    }
-
-    // Método que se activa cuando se finaliza la partida
-    private void finalizarPartida() {
-        finish();
-    }
-
     // Método que se activa cuando se responden todas las preguntas
     private void juegoCompletado() {
         // String auxiliares que se mostrarán en el mensaje
@@ -362,9 +383,31 @@ public class GameActivity extends Activity {
                 .show();
     }
 
+    // Método para cambiar de pregunta y actualizar los campos de la actividad
+    private void siguientePregunta() {
+        pregunta = Preguntas.getPregunta(id);
+        actualizarVistas();
+    }
+
+    // Método que se activa cuando se finaliza la partida
+    private void finalizarPartida() {
+        finish();
+    }
+
+    // Método que destruye el mediaPlayer
     private void destruirMediaPlayer() {
         mediaPlayer.stop();
         mediaPlayer.reset();
         mediaPlayer.release();
+    }
+
+    // Método para obtener el id de un recurso en forma de imagen a partir de un String
+    private int getImageId(Context context, String imageName) {
+        return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
+    }
+
+    // Método para obtener el id de un recurso en forma de sonido a partir de un String
+    private int getSongId(Context context, String songName) {
+        return context.getResources().getIdentifier("raw/" + songName, null, context.getPackageName());
     }
 }
