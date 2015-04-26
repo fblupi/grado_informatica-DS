@@ -2,7 +2,11 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_repeat</item>
-        <item name="android:alertDialogTheme">@android:style/Theme.Dialog</item>
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialogTheme</item>
+    </style>
+
+    <style name="AppTheme.AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="Buttons">
@@ -11,6 +15,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:singleLine">true</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/btn_default</item>
         <item name="android:textColor">@color/buttonTextColor</item>
         <item name="android:paddingLeft">8dp</item>

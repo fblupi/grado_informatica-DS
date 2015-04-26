@@ -1,10 +1,17 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:windowBackground">@drawable/bg_repeat</item>
-        <item name="android:alertDialogTheme">@android:style/Theme.Dialog</item>
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialogTheme</item>
     </style>
 
+    <style name="AppTheme.AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+    
     <style name="Buttons">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">36dp</item>
@@ -18,6 +25,7 @@
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
         <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:elevation">5dp</item>
     </style>
 
     <style name="Buttons.Error">
