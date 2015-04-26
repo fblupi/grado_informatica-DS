@@ -4,8 +4,14 @@
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:windowBackground">@drawable/bg_repeat</item>
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialogTheme</item>
     </style>
 
+    <style name="AppTheme.AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+    
     <style name="Buttons">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">36dp</item>
@@ -24,12 +30,10 @@
 
     <style name="Buttons.Error">
         <item name="android:background">@drawable/btn_error</item>
-        <item name="android:textColor">@color/buttonTextColorWhite</item>
     </style>
 
     <style name="Buttons.Success">
         <item name="android:background">@drawable/btn_success</item>
-        <item name="android:textColor">@color/buttonTextColorWhite</item>
     </style>
 
     <style name="Buttons.Main">
