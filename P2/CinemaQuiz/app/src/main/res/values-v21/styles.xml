@@ -8,7 +8,7 @@
     </style>
 
     <style name="AppTheme.AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryUltraDark</item>
         <item name="android:minWidth">200dp</item>
     </style>
     

@@ -162,10 +162,32 @@ public class GameActivity extends Activity {
     @Override
     // Método cuando se pulsa el botón atrás
     public void onBackPressed() {
-        if(pregunta.getTipo()==2) { // Hay música
-            destruirMediaPlayer(); // Finalizar y liberar música
-        }
-        finalizarPartida();
+        // String auxiliares que se mostrarán en el mensaje
+        String areYouSureMessage = getString(R.string.exit_game_confirmation);
+        String successMessage = getString(R.string.num_success) + aciertos;
+        String errorsMessage = getString(R.string.num_errors) + fallos;
+
+        // Se muestra un AlertDialog con los resultados finales y un botón para volver al menu principal
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exit_game)
+                .setMessage(areYouSureMessage + "\n\n" + successMessage + "\n" + errorsMessage) // Mensaje de despedida con los aciertos y fallos que se llevan
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // Botón salir
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(pregunta.getTipo()==2) { // Hay música
+                            destruirMediaPlayer(); // Finalizar y liberar música
+                        }
+                        finalizarPartida(); // Se finaliza la partida
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Se sale del AlertDialog sin hacer nada
+                    }
+                })
+                .setCancelable(false) // Pulsar fuera del AlertDialog no lo desactiva
+                .show();
     }
 
     // Método llamado al pulsar un botón de respuesta

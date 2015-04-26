@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CinemaQuiz</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
     <string name="title_activity_results">Resultados</string>
     <string name="title_activity_other_games">Otros juegos</string>
     <string name="title_activity_game">Juego</string>
@@ -20,4 +22,5 @@
     <string name="num_errors">Fallos:\t</string>
     <string name="finish_title">Fin de partida</string>
     <string name="finish_message">¡Felicidades! Has respondido todas las preguntas. Pulsa en el botón para volver al menú principal.</string>
+    <string name="exit_game_confirmation">¿Estás seguro que quieres salir de la partida?</string>
 </resources>
