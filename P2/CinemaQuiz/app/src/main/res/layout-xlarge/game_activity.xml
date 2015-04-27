@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.35"
-        android:padding="24dp">
+        android:padding="@dimen/layout_padding_narrow">
 
         <ImageView
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/play"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="@dimen/music_button_margin"
                 android:layout_toRightOf="@+id/play"
                 android:src="@android:drawable/ic_media_pause" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/pause"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="@dimen/music_button_margin"
                 android:layout_toRightOf="@+id/pause"
                 android:src="@android:drawable/ic_media_rew" />
 
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:padding="64dp"
+        android:padding="@dimen/layout_padding"
         android:layout_weight="0.4">
 
         <ScrollView
@@ -74,8 +74,7 @@
                 android:textColor="@color/buttonTextColor"
                 android:text="¿Cuál de estos nombres corresponde al agujero negro de la imagen?"
                 android:id="@+id/question"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="12dp"/>
+                android:layout_gravity="center_horizontal"/>
         </ScrollView>
 
     </LinearLayout>
@@ -85,14 +84,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:padding="64dp"
+        android:padding="@dimen/layout_padding"
         android:layout_weight="0.25">
         <Button
             android:text="Gargántula"
             android:id="@+id/option0"
             android:layout_gravity="center_horizontal"
-            android:layout_height="48dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_margin"
             android:textSize="18dp"
             style="@style/Buttons"/>
 
@@ -100,8 +99,8 @@
             android:text="Gargantúa"
             android:id="@+id/option1"
             android:layout_gravity="center_horizontal"
-            android:layout_height="48dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_margin"
             android:textSize="18dp"
             style="@style/Buttons"/>
 
@@ -109,8 +108,8 @@
             android:text="Garganta"
             android:id="@+id/option2"
             android:layout_gravity="center_horizontal"
-            android:layout_height="48dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_margin"
             android:textSize="18dp"
             style="@style/Buttons"/>
 
@@ -118,8 +117,8 @@
             android:text="Gargantilla"
             android:id="@+id/option3"
             android:layout_gravity="center_horizontal"
-            android:layout_height="48dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_margin"
             android:textSize="18dp"
             style="@style/Buttons" />
     </LinearLayout>
