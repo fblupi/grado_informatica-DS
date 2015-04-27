@@ -48,6 +48,7 @@ public class GameActivity extends Activity {
 
         aciertos = fallos = id = 0; // se inicializan las variables a 0
         pregunta = Preguntas.getPregunta(id); // se escoge la pregunta número id
+        pregunta.shuffle();
 
         // Se buscan los botones
         option0 = (Button) findViewById(R.id.option0);
@@ -408,6 +409,7 @@ public class GameActivity extends Activity {
     // Método para cambiar de pregunta y actualizar los campos de la actividad
     private void siguientePregunta() {
         pregunta = Preguntas.getPregunta(id);
+        pregunta.shuffle();
         actualizarVistas();
     }
 

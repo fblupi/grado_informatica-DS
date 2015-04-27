@@ -11,7 +11,7 @@ public class Preguntas {
         vectorPreguntas = ejemploPreguntas();
     }
 
-    static void shuffle() { vectorPreguntas = ejemploPreguntas(); }
+    static void shuffle() { Collections.shuffle(vectorPreguntas); }
 
     static Pregunta getPregunta(int id) {
         return vectorPreguntas.get(id);
@@ -220,7 +220,7 @@ public class Preguntas {
                 "El caballero oscuro",
                 2, "time"
         ));
-        Collections.shuffle(preguntas);
+
         return preguntas;
     }
 }

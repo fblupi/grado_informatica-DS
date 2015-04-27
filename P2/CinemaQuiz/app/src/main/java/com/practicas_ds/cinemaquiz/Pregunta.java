@@ -14,48 +14,55 @@ public class Pregunta {
         return pregunta;
     }
 
-    public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
-    }
-
     public int getRespuestaCorrecta() {
         return respuestaCorrecta;
-    }
-
-    public void setRespuestaCorrecta(int respuestaCorrecta) {
-        this.respuestaCorrecta = respuestaCorrecta;
     }
 
     public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
     public String getRecurso() {
         return recurso;
-    }
-
-    public void setRecurso(String recurso) {
-        this.recurso = recurso;
-    }
-
-    public String[] getRespuestas() {
-        return respuestas;
-    }
-
-    public void setRespuestas(String[] respuestas) {
-        this.respuestas = respuestas;
     }
 
     public String getRespuesta(int i) {
         return respuestas[i];
     }
 
-    public void setRespuesta(int i, String respuesta) {
-        respuestas[i] = respuesta;
+    public void shuffle() {
+        String[] respuestasAnteriores = new String[4];
+        System.arraycopy(respuestas, 0, respuestasAnteriores, 0, respuestas.length);
+        int respuestaCorrectaAnterior = respuestaCorrecta;
+
+        respuestas[0] = respuestas[1] = respuestas[2] = respuestas[3] = null;
+
+        Random random = new Random();
+
+        int number = random.nextInt(4);
+        respuestas[number] = respuestasAnteriores[0];
+        if(respuestaCorrectaAnterior==0) respuestaCorrecta = number;
+
+        number = random.nextInt(4);
+        while (respuestas[number] != null) {
+            number = (number + 1) % 4;
+        }
+        respuestas[number] = respuestasAnteriores[1];
+        if(respuestaCorrectaAnterior==1) respuestaCorrecta = number;
+
+        number = random.nextInt(4);
+        while (respuestas[number] != null) {
+            number = (number + 1) % 4;
+        }
+        respuestas[number] = respuestasAnteriores[2];
+        if(respuestaCorrectaAnterior==2) respuestaCorrecta = number;
+
+        number = random.nextInt(4);
+        while (respuestas[number] != null) {
+            number = (number + 1) % 4;
+        }
+        respuestas[number] = respuestasAnteriores[3];
+        if(respuestaCorrectaAnterior==3) respuestaCorrecta = number;
     }
 
     public Pregunta(String pregunta, String respuestaCorrecta,
@@ -66,29 +73,11 @@ public class Pregunta {
         this.recurso = recurso;
         respuestas = new String[4];
 
-        Random random = new Random();
-        int number = random.nextInt(4);
-
-        this.respuestaCorrecta = number;
-        respuestas[this.respuestaCorrecta] = respuestaCorrecta;
-
-        number = random.nextInt(4);
-        while(respuestas[number] != null) {
-            number = (number + 1) % 4;
-        }
-        respuestas[number] = respuestaIncorrecta1;
-
-        number = random.nextInt(4);
-        while(respuestas[number] != null) {
-            number = (number + 1) % 4;
-        }
-        respuestas[number] = respuestaIncorrecta2;
-
-        number = random.nextInt(4);
-        while(respuestas[number] != null) {
-            number = (number + 1) % 4;
-        }
-        respuestas[number] = respuestaIncorrecta3;
+        this.respuestaCorrecta = 0;
+        respuestas[0] = respuestaCorrecta;
+        respuestas[1] = respuestaIncorrecta1;
+        respuestas[2] = respuestaIncorrecta2;
+        respuestas[3] = respuestaIncorrecta3;
     }
 
 }
