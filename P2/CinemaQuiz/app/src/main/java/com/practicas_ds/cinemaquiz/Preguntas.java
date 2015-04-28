@@ -220,6 +220,127 @@ public class Preguntas {
                 "El caballero oscuro",
                 2, "time"
         ));
+        //NUEVAS
+        preguntas.add(new Pregunta(
+                "¿Cuál de los siguientes no es un enanito en la película Blancanieves y los siete enanitos?",
+                "Cascarrabias",
+                "Timido",
+                "Mocoso",
+                "Dormilón",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Qué es Stitch de la película Lilo y Stitch? ",
+                "Un alienígena",
+                "Un koala",
+                "Un mono",
+                "Una niña",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cuál de los siguientes titanes no aparece en la película Hércules?",
+                "Titán de agua",
+                "Titán de roca",
+                "Titán de lava",
+                "Titán de hielo",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cuántos niños consiguen un billete dorado para la fábrica de Willy Wonka en Charlie y la fábrica de chocolate?",
+                "5",
+                "6",
+                "7",
+                "4",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cómo se denominan a los seres humanos que no tienen poderes mágicos en el mundo de Harry Potter?",
+                "Muggle",
+                "Tuffel",
+                "Monnel",
+                "Riddle",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué año se estrenó Pinocho?",
+                "1940",
+                "1970",
+                "1960",
+                "1980",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cuántas hadas madrinas aparecen en la película Cenicienta?",
+                "1",
+                "2",
+                "3",
+                "4",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué se convierte la carroza de Cenicienta pasada la media noche?",
+                "Una calabaza",
+                "Un melón",
+                "Una mandarina",
+                "Una berenjena",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Qué actriz interpreta el papel de bruja en la película Maléfica?",
+                "Angelina Jolie",
+                "Elle fanning",
+                "Julia Roberts",
+                "Sandra Bullock",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Con qué alimento mantiene relaciones sexuales Jim en la película American Pie?",
+                "Una tarta",
+                "Un filete",
+                "Un melón",
+                "Un donut",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué grupo político quiere meterse Brian en La vida de Brian?",
+                "Frente Popular de Judea",
+                "Frente Judaico Popular",
+                "Frente del pueblo Judaico",
+                "Unión Popular",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cómo se llama el perro de Asterix y Obelix?",
+                "Ideafix",
+                "Matusalix",
+                "Panoramix",
+                "Milú",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Qué insecto protagoniza la película Bichos?",
+                "Una hormiga",
+                "Una oruga",
+                "Un saltamontes",
+                "Un insecto palo",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué país está ambientada la película Ciudad de Dios?",
+                "Brasil",
+                "Méjico",
+                "Argentina",
+                "Filipinas",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cómo se llama el cangrejo de La Sirenita?",
+                "Sebastián",
+                "Arturo",
+                "Lobster",
+                "Roberto",
+                0,null
+        ));
 
         return preguntas;
     }
