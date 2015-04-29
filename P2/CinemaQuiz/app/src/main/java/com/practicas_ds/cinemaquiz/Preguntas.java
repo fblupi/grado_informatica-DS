@@ -341,6 +341,86 @@ public class Preguntas {
                 "Roberto",
                 0,null
         ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos ver a este particular conejo?",
+                "Donnie Darko",
+                "Los conejitos de pascua",
+                "Space Jam",
+                "El conejo asesino",
+                1,"conejo_frank"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos ver a este personaje?",
+                "American History X",
+                "La lista de Schindler",
+                "El pianista",
+                "Malditos Bastardos",
+                1,"derek_vinyard"
+        ));
+        preguntas.add(new Pregunta(
+                "¿Cuál de estas películas dirigió Ben Affleck?",
+                "Argo",
+                "Perdida",
+                "Runner Runner",
+                "The Company Name",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película un hombre se enamora de la voz femenina de su sistema operativo?",
+                "Her",
+                "A.I. Inteligencia artificial",
+                "La voz dormida",
+                "Un hombre solitario",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿De qué famoso informático trata la película La red social?",
+                "Mark Zuckerberg",
+                "Dennis Ritchie",
+                "Richard Stallman",
+                "Bill Gates",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿Qué trastorno sufría Raymond en Rayman?",
+                "Autismo",
+                "Esquizofrenia",
+                "Trastorno bipolar",
+                "Déficit de atención",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos ver esta imagen?",
+                "E.T., El extraterrestre",
+                "Paul",
+                "Las bicis voladoras",
+                "Sin frenos",
+                1,"bicicleta_voladora"
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película Rowan Atkinson hace de detective?",
+                "Johnny English",
+                "Skyfall",
+                "Quantum of Solace",
+                "Muere otro día",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película relatan la probable supervivencia de Lorca tras la guerra?",
+                "La luz prodigiosa",
+                "La voz dormida",
+                "La hora de los valientes",
+                "La mujer del anarquista",
+                0,null
+        ));
+        preguntas.add(new Pregunta(
+                "¿En qué película podemos ver esta escena?",
+                "Braveheart",
+                "Brave (Indomable)",
+                "William Wallace",
+                "Highlander",
+                1,"william_wallace"
+        ));
 
         return preguntas;
     }
