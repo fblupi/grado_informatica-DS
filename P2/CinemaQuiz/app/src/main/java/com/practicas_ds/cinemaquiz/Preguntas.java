@@ -22,15 +22,7 @@ public class Preguntas {
         return vectorPreguntas.get(id);
     }
 
-    static void addPregunta(Pregunta pregunta) {
-        vectorPreguntas.add(pregunta);
-    }
-
-    static void removePregunta(int id) {
-        vectorPreguntas.remove(id);
-    }
-
-    public static int size() {
+    static int size() {
         return vectorPreguntas.size();
     }
 

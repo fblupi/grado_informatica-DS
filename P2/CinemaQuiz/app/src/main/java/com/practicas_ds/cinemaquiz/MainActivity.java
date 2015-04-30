@@ -11,7 +11,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
     private static final long INTERVALO_CLICK = 1000;
-    private DBHelper db = new DBHelper(this); // Base de datos
+    private DBHelper db = DBHelper.getInstance(this); // Base de datos
     private long mLastClickTime = 0; // Variable para controlar el tiempo entre pulsaciones
 
     @Override
