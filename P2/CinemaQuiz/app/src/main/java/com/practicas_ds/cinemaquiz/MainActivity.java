@@ -9,18 +9,22 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-    private static final long INTERVALO_CLICK = 1000;
 
+    private static final long INTERVALO_CLICK = 1000;
+    private DBHelper db = new DBHelper(this); // Base de datos
     private long mLastClickTime = 0; // Variable para controlar el tiempo entre pulsaciones
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.main_activity);
 
         Button btNewGame = (Button) findViewById(R.id.new_game);
         Button btResults = (Button) findViewById(R.id.results);
         Button btOtherGames = (Button) findViewById(R.id.other_games);
+
+        Preguntas.setPreguntas(db.getAll("cine")); // Se obtienen todas las preguntas de cine de la BBDD
 
         btNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
