@@ -24,6 +24,7 @@ public class GameActivity extends Activity {
     private int aciertos; // número de aciertos
     private int fallos; // número de fallos
     private int id; // id de la pregunta actual
+    private int limite; // número de preguntas que se responderán
     private Pregunta pregunta; // pregunta actual
     private Button option0; // Botón primera opción
     private Button option1; // Botón segunda opción
@@ -43,6 +44,9 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
+        Bundle extras = getIntent().getExtras(); // Se obtienen los parámetros recibidos
+
+        limite = extras.getInt("num"); // Se recoge el parámetro con el límite de preguntas
 
         Preguntas.shuffle(); // Se barajan las preguntas
 
@@ -181,12 +185,7 @@ public class GameActivity extends Activity {
                         finalizarPartida(); // Se finaliza la partida
                     }
                 })
-                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Se sale del AlertDialog sin hacer nada
-                    }
-                })
+                .setNegativeButton(R.string.no, null)
                 .setCancelable(false) // Pulsar fuera del AlertDialog no lo desactiva
                 .show();
     }
@@ -337,7 +336,7 @@ public class GameActivity extends Activity {
                 .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() { // Botón continuar
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (id == Preguntas.size()) { // Se ha respondido todas las preguntas
+                        if (id == limite) { // Se ha respondido todas las preguntas
                             juegoCompletado();
                         } else { // Se pasa a la siguiente pregunta
                             siguientePregunta();
@@ -374,7 +373,7 @@ public class GameActivity extends Activity {
                 .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() { // Botón continuar
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (id == Preguntas.size()) { // Se ha respondido todas las preguntas
+                        if (id == limite) { // Se ha respondido todas las preguntas
                             juegoCompletado();
                         } else { // Se pasa a la siguiente pregunta
                             siguientePregunta();

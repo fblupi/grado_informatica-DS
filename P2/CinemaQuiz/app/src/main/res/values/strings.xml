@@ -17,10 +17,21 @@
     <string name="success_message">¡Correcto!</string>
     <string name="error_message">Has fallado...</string>
     <string name="continue_game">Continuar</string>
+    <string name="cancel">Cancelar</string>
     <string name="exit_game">Salir</string>
     <string name="num_success">Aciertos:\t</string>
     <string name="num_errors">Fallos:\t</string>
     <string name="finish_title">Fin de partida</string>
     <string name="finish_message">¡Felicidades! Has respondido todas las preguntas. Pulsa en el botón para volver al menú principal.</string>
     <string name="exit_game_confirmation">¿Estás seguro que quieres salir de la partida?</string>
+    <string name="question_num_selection">Número de preguntas</string>
+    <string name="question_num_selection_message">¿Cuántas preguntas quieres responder?</string>
+
+    <string-array name="game_selection">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+        <item>10</item>
+    </string-array>
 </resources>

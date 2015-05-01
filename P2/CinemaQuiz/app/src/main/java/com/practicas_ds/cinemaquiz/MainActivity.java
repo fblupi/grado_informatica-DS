@@ -1,11 +1,18 @@
 package com.practicas_ds.cinemaquiz;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -33,8 +40,7 @@ public class MainActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(intent);
+                lanzarJuego();
             }
         });
 
@@ -45,8 +51,7 @@ public class MainActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
-                startActivity(intent);
+                lanzarResultados();
             }
         });
 
@@ -57,11 +62,42 @@ public class MainActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                Intent intent = new Intent(MainActivity.this, OtherGamesActivity.class);
-                startActivity(intent);
+                lanzarOtrosJuegos();
             }
         });
+    }
 
+    public void lanzarJuego() {
+        final Spinner spinner = new Spinner(this); // Se cre un spinner
+        final int pad = this.getResources().getDimensionPixelSize(R.dimen.layout_padding);
+        spinner.setPadding(pad,pad,pad,pad); // Se le asigna el padding por defecto de la aplicación
+        ArrayAdapter<CharSequence> adp = ArrayAdapter.createFromResource(this, R.array.game_selection, android.R.layout.simple_list_item_1);
+        spinner.setAdapter(adp); // Se le asignan al spinner los valores guardados en el string-array game_selection
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.question_num_selection)
+                .setMessage(R.string.question_num_selection_message)
+                .setView(spinner)
+                .setPositiveButton(R.string.continue_game, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) { // Cuando se pulsa en continuar
+                        int num = Integer.parseInt(spinner.getSelectedItem().toString()); // Se obtiene el valor selecionado
+                        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                        intent.putExtra("num", num); // Se le pasa a la siguiente actividad
+                        startActivity(intent); // Se inicia la actividad
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .setCancelable(false)
+                .show();
+    }
 
+    public void lanzarResultados() {
+        Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+        startActivity(intent);
+    }
+
+    public void lanzarOtrosJuegos() {
+        Intent intent = new Intent(MainActivity.this, OtherGamesActivity.class);
+        startActivity(intent);
     }
 }
