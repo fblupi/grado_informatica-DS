@@ -26,6 +26,8 @@
     <string name="exit_game_confirmation">¿Estás seguro que quieres salir de la partida?</string>
     <string name="question_num_selection">Número de preguntas</string>
     <string name="question_num_selection_message">¿Cuántas preguntas quieres responder?</string>
+    <string name="delete_results">Limpiar resultados</string>
+    <string name="delete_results_message">¿Estás seguro que quieres eliminar los resultados?</string>
 
     <string-array name="game_selection">
         <item>50</item>

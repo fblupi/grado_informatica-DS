@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Date;
+
 public class GameActivity extends Activity {
     private static final long INTERVALO_CLICK = 1000;
 
@@ -38,6 +40,7 @@ public class GameActivity extends Activity {
     private int spFalloId; // Identificador de sonido de fallo
     private MediaPlayer mediaPlayer; // Sonido de música en preguntas
     private long mLastClickTime = 0; // Variable para controlar el tiempo entre pulsaciones
+    private Results results = Results.getInstance(this);
 
     // Método llamado al crear la actividad
     @Override
@@ -414,6 +417,7 @@ public class GameActivity extends Activity {
 
     // Método que se activa cuando se finaliza la partida
     private void finalizarPartida() {
+        results.guardarPuntuacion(new Date(),aciertos,fallos);
         finish();
     }
 
