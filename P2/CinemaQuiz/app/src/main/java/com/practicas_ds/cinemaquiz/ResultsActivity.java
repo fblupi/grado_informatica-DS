@@ -15,9 +15,9 @@ import java.util.Vector;
 
 public class ResultsActivity extends Activity {
 
-    Results puntuaciones = Results.getInstance(this);
-    LinearLayout lista;
-    Button btn;
+    private Results puntuaciones = Results.getInstance(this);
+    private LinearLayout lista;
+    private Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

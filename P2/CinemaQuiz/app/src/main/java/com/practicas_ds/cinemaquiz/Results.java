@@ -14,7 +14,7 @@ import java.util.Vector;
 
 public class Results {
 
-    private static Results instance;
+    private static Results instance = null;
 
     private static String FILE = "puntuaciones.txt";
     private Context context;

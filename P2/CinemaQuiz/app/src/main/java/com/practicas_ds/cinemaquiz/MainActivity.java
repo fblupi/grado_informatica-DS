@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void lanzarJuego() {
+    private void lanzarJuego() {
         final Spinner spinner = new Spinner(this); // Se cre un spinner
         final int pad = this.getResources().getDimensionPixelSize(R.dimen.layout_padding);
         spinner.setPadding(pad,pad,pad,pad); // Se le asigna el padding por defecto de la aplicación
@@ -91,12 +91,12 @@ public class MainActivity extends Activity {
                 .show();
     }
 
-    public void lanzarResultados() {
+    private void lanzarResultados() {
         Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
         startActivity(intent);
     }
 
-    public void lanzarOtrosJuegos() {
+    private void lanzarOtrosJuegos() {
         Intent intent = new Intent(MainActivity.this, OtherGamesActivity.class);
         startActivity(intent);
     }
