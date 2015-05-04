@@ -11,13 +11,12 @@ public class Interprete {
 			this.fields = this.clase.getDeclaredFields(); // Obtiene atributos
 			this.methods = this.clase.getDeclaredMethods(); // Obtiene métodos
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public String printName() {
-		return "Salida: " + this.clase + "\n";
+		return "Nombre de clase: " + this.clase + "\n\n";
 	}
 	
 	public String printFields() {
@@ -26,7 +25,7 @@ public class Interprete {
 			field.setAccessible(true); // Para poder acceder a los private
 			String fieldName = field.getName(); // Obtiene nombre
 			Object fieldType = field.getType(); // Obtiene tipo
-			salida += ("Atributo: " + fieldName + "\nTipo: " + fieldType + "\n");
+			salida += ("Atributo\nNombre: " + fieldName + "\nTipo: " + fieldType + "\n\n");
 		}
 		return salida;
 	}
@@ -37,7 +36,7 @@ public class Interprete {
 			method.setAccessible(true); // Para poder acceder a los private
 			String methodName = method.getName(); // Obtiene nombre
 			Object methodType = method.getReturnType(); // Obtiene tipo
-			salida += ("Atributo: " + methodName + "\nTipo: " + methodType + "\n");
+			salida += ("Método\nNombre:" + methodName + "\nTipo: " + methodType + "\n\n");
 		}
 		return salida;
 	}
