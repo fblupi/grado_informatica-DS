@@ -28,6 +28,7 @@
     <string name="question_num_selection_message">¿Cuántas preguntas quieres responder?</string>
     <string name="delete_results">Limpiar resultados</string>
     <string name="delete_results_message">¿Estás seguro que quieres eliminar los resultados?</string>
+    <string name="no_results">No hay ningún resultado guardado</string>
 
     <string-array name="game_selection">
         <item>50</item>

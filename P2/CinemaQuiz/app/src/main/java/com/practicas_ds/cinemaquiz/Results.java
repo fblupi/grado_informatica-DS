@@ -35,7 +35,7 @@ public class Results {
         try {
             f = context.openFileOutput(FILE, Context.MODE_APPEND);
             int porcentaje = Math.round(((float)aciertos/(aciertos+fallos))*100);
-            DateFormat formatoDia = new SimpleDateFormat("yyyy/MM/dd");
+            DateFormat formatoDia = new SimpleDateFormat("dd/MM/yyyy");
             DateFormat formatoHora = new SimpleDateFormat("HH:mm");
             String formatoNumero = "%3d";
             String strDia = formatoDia.format(fecha);

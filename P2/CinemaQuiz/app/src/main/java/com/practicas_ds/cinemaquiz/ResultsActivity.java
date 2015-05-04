@@ -38,9 +38,17 @@ public class ResultsActivity extends Activity {
 
     private void actualizarLista() {
         Vector<String> listaPuntuaciones = puntuaciones.listaPuntuaciones();
-        for(String puntuacion : listaPuntuaciones) {
+        if(listaPuntuaciones.size() > 0) {
+            for (String puntuacion : listaPuntuaciones) {
+                TextView textView = new TextView(this);
+                textView.setText(puntuacion);
+                textView.setTextAppearance(this, android.R.style.TextAppearance_Medium);
+                lista.addView(textView);
+            }
+        } else {
             TextView textView = new TextView(this);
-            textView.setText(puntuacion);
+            textView.setText(R.string.no_results);
+            textView.setTextAppearance(this, android.R.style.TextAppearance_Medium);
             lista.addView(textView);
         }
     }
