@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -50,6 +51,11 @@ public class GameActivity extends Activity {
         Bundle extras = getIntent().getExtras(); // Se obtienen los parámetros recibidos
 
         limite = extras.getInt("num"); // Se recoge el parámetro con el límite de preguntas
+
+        if(limite > Preguntas.size() || limite < 1) { // Número incorrecto de preguntas
+            limite = Preguntas.size(); // Se juegan todas las preguntas
+            Toast.makeText(this, R.string.question_readjustment, Toast.LENGTH_SHORT).show();
+        }
 
         Preguntas.shuffle(); // Se barajan las preguntas
 

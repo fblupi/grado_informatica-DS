@@ -29,6 +29,7 @@
     <string name="delete_results">Limpiar resultados</string>
     <string name="delete_results_message">¿Estás seguro que quieres eliminar los resultados?</string>
     <string name="no_results">No hay ningún resultado guardado</string>
+    <string name="question_readjustment">Número de preguntas reajustado</string>
 
     <string-array name="game_selection">
         <item>50</item>
