@@ -7,8 +7,7 @@ import java.util.List;
 public class Preguntas {
     private static List<Pregunta> vectorPreguntas;
 
-    public Preguntas() {
-    }
+    public Preguntas() { }
 
     public static void setPreguntas(ArrayList<Pregunta> preguntas) {
         vectorPreguntas = preguntas;
