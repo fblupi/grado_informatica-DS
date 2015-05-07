@@ -38,31 +38,16 @@ public class Pregunta {
         respuestas[0] = respuestas[1] = respuestas[2] = respuestas[3] = null;
 
         Random random = new Random();
+        int number;
 
-        int number = random.nextInt(4);
-        respuestas[number] = respuestasAnteriores[0];
-        if(respuestaCorrectaAnterior==0) respuestaCorrecta = number;
-
-        number = random.nextInt(4);
-        while (respuestas[number] != null) {
-            number = (number + 1) % 4;
+        for(int i=0; i<4; i++) {
+            number = random.nextInt(4);
+            while (respuestas[number] != null) {
+                number = (number + 1) % 4;
+            }
+            respuestas[number] = respuestasAnteriores[i];
+            if (respuestaCorrectaAnterior == i) respuestaCorrecta = number;
         }
-        respuestas[number] = respuestasAnteriores[1];
-        if(respuestaCorrectaAnterior==1) respuestaCorrecta = number;
-
-        number = random.nextInt(4);
-        while (respuestas[number] != null) {
-            number = (number + 1) % 4;
-        }
-        respuestas[number] = respuestasAnteriores[2];
-        if(respuestaCorrectaAnterior==2) respuestaCorrecta = number;
-
-        number = random.nextInt(4);
-        while (respuestas[number] != null) {
-            number = (number + 1) % 4;
-        }
-        respuestas[number] = respuestasAnteriores[3];
-        if(respuestaCorrectaAnterior==3) respuestaCorrecta = number;
     }
 
     public Pregunta(String pregunta, String respuestaCorrecta,
