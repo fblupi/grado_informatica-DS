@@ -100,7 +100,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                elegirRespuesta(null, 0);
+                elegirRespuesta(0);
             }
         });
 
@@ -111,7 +111,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                elegirRespuesta(null, 1);
+                elegirRespuesta(1);
             }
         });
 
@@ -122,7 +122,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                elegirRespuesta(null, 2);
+                elegirRespuesta(2);
             }
         });
 
@@ -133,7 +133,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                elegirRespuesta(null, 3);
+                elegirRespuesta(3);
             }
         });
 
@@ -145,7 +145,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                playMusic(null);
+                playMusic();
             }
         });
 
@@ -156,7 +156,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                pauseMusic(null);
+                pauseMusic();
             }
         });
 
@@ -167,7 +167,7 @@ public class GameActivity extends Activity {
                     return;
                 }
                 mLastClickTime = SystemClock.elapsedRealtime(); // Se actualiza la última pulsación
-                stopMusic(null);
+                stopMusic();
             }
         });
 
@@ -200,7 +200,7 @@ public class GameActivity extends Activity {
     }
 
     // Método llamado al pulsar un botón de respuesta
-    private void elegirRespuesta(View view, int id) {
+    private void elegirRespuesta(int id) {
         if(pregunta.getTipo()==2) { // Hay música
             destruirMediaPlayer(); // Finalizar y liberar música
         }
@@ -254,21 +254,21 @@ public class GameActivity extends Activity {
     }
 
     // Método llamado al pulsar en play
-    private void playMusic(View view) {
+    private void playMusic() {
         mediaPlayer.start(); // Se vuelve a reproducir
         pause.setEnabled(true); // Se habilita el botón de pause
         play.setEnabled(false); // Se deshabilita el botón de play
     }
 
     // Método llamado al pulsar en pause
-    private void pauseMusic(View view) {
+    private void pauseMusic() {
         mediaPlayer.pause(); // Se para
         play.setEnabled(true); // Se habilita el botón de play
         pause.setEnabled(false); // Se deshabilita el botón de pause
     }
 
     // Método llamado al pulsar en stop
-    private void stopMusic(View view) {
+    private void stopMusic() {
         mediaPlayer.seekTo(0); // Se vuelve al principio
         mediaPlayer.start(); // Se inicia
         pause.setEnabled(true); // Se habilita el botón de pause
