@@ -1,4 +1,0 @@
-¿Está bien implementado el mecanismo de ir de pregunta en pregunta?
-¿Se tiene que mostrar la respuesta correcta siempre que se falla?
-¿Se puede usar, como se ha usado, soundPool para los sonidos de notificaciones?
-¿Música derechos de autor?

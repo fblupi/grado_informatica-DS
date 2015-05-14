@@ -1,0 +1,3 @@
+1. Descargar CinemaQuiz.zip desde: https://mega.co.nz/#!3Nw2RAiL!7D3Wto9z1rQt35dk82qpbuUfwcgN5fGRE6pHRtNzkB0
+2. Descomprimir CinemaQuiz.zip
+3. Desde Android Studio pulsar la opción "Open an existing Android Studio project" y seleccionar la carpeta descomprimida.

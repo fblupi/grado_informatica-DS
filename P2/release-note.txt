@@ -1,0 +1,22 @@
+RELEASE NOTE CinemaQuiz
+- Android 4.4.2 (API 19) o mayor
+- Librerías utilizadas:
+	- SoundPool: Audios de notifiaciones
+	- MediaPlayer: Audios en preguntas
+	- SQLiteOpenHelper: Base de datos
+- Probado en:
+	- Motorolo Moto G 2013 (Android 5.0.2)
+	- Motorola Moto G 2014 (Android 5.0.2)
+	- Xiaomi MI3 (Android 4.4.4)
+	- Genymotion emulando:
+		- Custom Phone (4.4.4)
+		- Custom Tablet (5.1)	
+- Instrucciones: 
+	- Instalar el APK y abrir la aplicación.
+	- Apareceerá un menú desde donde se podrá acceder a los resultados, ver otros juegos y jugar.
+	- Cuando se pulsa en jugar se pide cuántas preguntas se quieren responder.
+	- Cuando se responde una pregunta se muestra un mensaje de error o acierto. Si se falla aparece la opción para volver al menú principal y abandonar la partida.
+	- Se puede abandonar la partida en cualquier momento pulsando en el botón "atrás" de la botonera del móvil.
+	- Si la pregunta tiene sonido, se puede parar y volver al principio en cualquier momento.
+	- Cuando se terminan todas las preguntas, aparece un mensaje dando la enhorabuena y se vuelve de nuevo al menú principal.
+	- Se pueden eliminar los resultados pulsando el botón "eliminar" en la pantalla de resultados.
